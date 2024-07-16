@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Item, Container, TodoList, Input, Button, List } from './App'
+import { Item, Container, TodoList, Input, Button, ListContainer, List } from './App'
 
 function ListaDeTarefas() {
     const [tasks, setTasks] = useState([])
@@ -21,6 +21,7 @@ function ListaDeTarefas() {
             <TodoList>
                 <Input name='tarefa' type="text" placeholder="Digite a sua tarefa" onChange={inputChange} />
                 <Button onClick={buttonClick}>Adicionar Tarefas</Button>
+                <ListContainer>
                 <List>
                     {
                         tasks.map((item, index) => (
@@ -28,6 +29,7 @@ function ListaDeTarefas() {
                         ))
                     }
                 </List>
+                </ListContainer>
             </TodoList>
         </Container>
     )

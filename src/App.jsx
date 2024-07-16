@@ -9,18 +9,31 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 600px){
+      padding: 10px;
+    }
 `;
 
 export const TodoList = styled.div`
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
+
+    @media (max-width: 600px){
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+    }
 `;
 
 
 export const List = styled.ul`
   padding: 0;
-  margin-top: 30px;
+  margin-top: 1px;
   
 `;
 
@@ -33,7 +46,7 @@ export const Item = styled.li`
     border-radius: 5px;
     height: 60px;
     list-style-type: none;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,5 +89,25 @@ export const Button = styled.button`
   &:active {
     opacity: 0.6;
   }
+
+  @media (max-width: 600px){
+    width: 100%;
+    margin: 0px;
+    
+    }
 `;
+
+export const ListContainer = styled.div`
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 20px;
+
+  @media (max-width: 600px){
+    margin-top: 0;
+    
+    }
+
+`
+
 
