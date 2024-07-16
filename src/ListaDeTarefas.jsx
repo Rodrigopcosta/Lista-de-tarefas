@@ -1,30 +1,35 @@
 import { useState } from 'react'
+import { Item, Container, TodoList, Input, Button, List } from './App'
 
 function ListaDeTarefas() {
     const [tasks, setTasks] = useState([])
     const [inputValue, setInputValue] = useState('')
 
     function inputChange(event) {
-        setInputValue(event.target.value)  
+        setInputValue(event.target.value)
     }
 
     function buttonClick() {
-        setTasks([...tasks, inputValue])
-    } 
+        const capitalizedTask = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+        setTasks([...tasks, capitalizedTask])
+        setInputValue('') // Limpar o campo de entrada após adicionar a tarefa
+    }
 
     return (
-        <div>
-            <input type="text" placeholder="Digite a sua tarefa" onChange={inputChange} />
-            <button onClick={buttonClick}>Adicionar Tarefas</button>
-
-            <ul>
-                {
-                    tasks.map(item => (
-                        <li>{item}</li>
-                    ))
-                }
-            </ul>
-        </div>
+        
+        <Container>
+            <TodoList>
+                <Input name='tarefa' type="text" placeholder="Digite a sua tarefa" onChange={inputChange} />
+                <Button onClick={buttonClick}>Adicionar Tarefas</Button>
+                <List>
+                    {
+                        tasks.map((item, index) => (
+                            <Item key={index}>{item}</Item>
+                        ))
+                    }
+                </List>
+            </TodoList>
+        </Container>
     )
 }
 export default ListaDeTarefas
