@@ -9,10 +9,6 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    @media (max-width: 600px){
-      padding: 10px;
-    }
 `;
 
 export const TodoList = styled.div`
@@ -20,7 +16,7 @@ export const TodoList = styled.div`
     padding: 20px;
     border-radius: 5px;
 
-    @media (max-width: 600px){
+    @media (max-width: 450px){
       padding: 10px;
       display: flex;
       flex-direction: column;
@@ -33,7 +29,6 @@ export const TodoList = styled.div`
 
 export const List = styled.ul`
   padding: 0;
-  margin-top: 1px;
   
 `;
 
@@ -71,6 +66,10 @@ export const Input = styled.input`
     font-size: 15px;
     outline: none;
     padding-left: 10px;
+
+    @media (max-width: 450px){
+    width: 95%;
+    }
 `;
 
 export const Button = styled.button`
@@ -90,10 +89,9 @@ export const Button = styled.button`
     opacity: 0.6;
   }
 
-  @media (max-width: 600px){
+  @media (max-width: 450px){
     width: 100%;
-    margin: 0px;
-    
+    margin: 0px;    
     }
 `;
 
@@ -103,9 +101,9 @@ export const ListContainer = styled.div`
   overflow-y: auto;
   margin-top: 20px;
 
-  @media (max-width: 600px){
-    margin-top: 0;
-    
+  @media (max-width: 450px){
+    width: 250px;
+    margin-top: 0;    
     }
 
 `

@@ -10,25 +10,30 @@ function ListaDeTarefas() {
     }
 
     function buttonClick() {
+        if (inputValue.trim() === '') {
+            alert('A tarefa não pode estar vazia');
+            return;
+        }
+
         const capitalizedTask = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
-        setTasks([...tasks, capitalizedTask])
+        setTasks([capitalizedTask, ...tasks]);
         setInputValue('') // Limpar o campo de entrada após adicionar a tarefa
     }
 
     return (
-        
+
         <Container>
             <TodoList>
-                <Input name='tarefa' type="text" placeholder="Digite a sua tarefa" onChange={inputChange} />
+                <Input name='tarefa' type="text" placeholder="Digite a sua tarefa" value={inputValue} onChange={inputChange} />
                 <Button onClick={buttonClick}>Adicionar Tarefas</Button>
                 <ListContainer>
-                <List>
-                    {
-                        tasks.map((item, index) => (
-                            <Item key={index}>{item}</Item>
-                        ))
-                    }
-                </List>
+                    <List>
+                        {
+                            tasks.map((item, index) => (
+                                <Item key={index}>{item}</Item>
+                            ))
+                        }
+                    </List>
                 </ListContainer>
             </TodoList>
         </Container>
